@@ -52,7 +52,6 @@
     
     > 所以aboveSubview中，插入的控件在子控件数组（subviews）中位于被插入控件的下面（后面）,而belowSubview中，插入的控件在子控件数组（subviews）中位于被插入控件的上面（前面）
     
-
 - 调整控件位置的方法
     ```objc
     - (void)insertSubview:(UIView *)view atIndex:(NSInteger)index;
