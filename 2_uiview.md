@@ -21,8 +21,8 @@
 - ```@property(nonatomic,readonly) UIView * superview;```调用某个控件的父控件
 
 - ```@property(nonatomic,readonly,copy) NSArray * subviews;```调用某个控件的所有子控件
-    
-    *注意：数组下标越大的控件显示在越顶上*
+    > 注意：数组下标越大的控件显示在越顶上*
+
 - ```- (void)addSubview:(UIView *)view;```为某一个父控件添加子控件
 
 - ```- (void)removeFromSuperview;```将某个控件从父控件中移除
@@ -46,12 +46,11 @@
 - ```- (void)insertSubview:(UIView *)view aboveSubview:(UIView *)siblingSubview;```将某个控件插在另一个控件的上面
 
 - ```- (void)insertSubview:(UIView *)view belowSubview:(UIView *)siblingSubview;```将某个控件插在另一个控件的下面
-    
-    *注意*
+    > 注意
 
-    *上述两个方法中，aboveSubview是将控件插在另一个控件的上面，也就是插入的控件显示在顶上。belowSubview是将控件插在另一个控件的下面，也就是插入的控件显示在底下。*
+    > 上述两个方法中，aboveSubview是将控件插在另一个控件的上面，也就是插入的控件显示在顶上。belowSubview是将控件插在另一个控件的下面，也就是插入的控件显示在底下。
     
-    *所以aboveSubview中，插入的控件在子控件数组（subviews）中位于被插入控件的下面（后面）,而belowSubview中，插入的控件在子控件数组（subviews）中位于被插入控件的上面（前面）*
+    > 所以aboveSubview中，插入的控件在子控件数组（subviews）中位于被插入控件的下面（后面）,而belowSubview中，插入的控件在子控件数组（subviews）中位于被插入控件的上面（前面）
     
 
 - 调整控件位置的方法
