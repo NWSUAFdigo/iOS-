@@ -70,4 +70,4 @@
     // 将控件放置到底部，也就是在控件数组的下标为0 
     ```
 
-- ```@property(nonatomic) CGRect frame;```表示控件的矩形框在父控件中的尺寸和位置
+- ```@property(nonatomic) CGRect frame;```表示控件的矩形框在**`父控件`**中的尺寸和位置
