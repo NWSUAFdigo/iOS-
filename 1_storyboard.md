@@ -8,7 +8,7 @@
 >当然也可以修改程序启动时所要加载的storyboard文件，在项目-->Target-->Main Inetrface中修改
 ![Main Interface](屏幕快照 2016-02-18 上午11.22.09.png)
 
->同时还需要将箭头指向该storyboard中的某一个ViewController
+>同时还需要将箭头指向该storyboard中的某一个ViewController,点击右侧属性面板中的Is Initial View Controller
 ![Initial View Controller](屏幕快照 2016-02-18 上午11.27.26.png)
 
 
