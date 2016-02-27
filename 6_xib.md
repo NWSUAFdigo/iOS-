@@ -31,8 +31,6 @@ xib文件与storyboard文件有许多的相似之处，但也有一些不同：
     - 方式1
     ```objc
     NSBundle * bundle = [NSBundle mainBundle];
-    NSString * path = [bundle pathForResource:@"WDBlockView.xib" ofType:nil];
-    NSArray * xibArray = [NSArray arrayWithContentsOfFile:path];
     NSArray * xibArray = [bundle loadNibNamed:@"Test" owner:nil options:nil];
     NSLog(@"%@",xibArray); // 得到一个包含xib文件中所有控件的数组
     [self.view addSubview:xibArray[1]];
@@ -62,16 +60,18 @@ xib文件与storyboard文件有许多的相似之处，但也有一些不同：
     >2 无法使用pathForResource: ofType: 方法来从mainBundle中获得xib文件
     >
     >3 当方法的形参是```NSBundle *``` 类型时，可以通过nil表示mainBundle。方式2中nib的创建可以改为：```UINib * nib = [UINib nibWithNibName:@"Test" bundle:nil]; ```    
+    >
+    4 **只有通过以上两种方式才能将xib文件中的控件添加到控制器，进而添加到视图中**
      
 **3 Xib与Xib控制器结合使用**
 - 与storyboard和ViewController结合使用一样，xib文件也可以和xib控制器结合起来进行使用
 - 使用方法
-    - 1 首先创建一个继承自UIView的类WDBlockView
+    - **1 首先创建一个继承自UIView的类WDBlockView**
     
     ![](屏幕快照 2016-02-27 下午3.54.46.png)
     - 注意
     > 在创建xib控制器时，最好将控制器和xib的名称命名相同，这样可以告诉其他开发者两者是一个整体关系
-    - 2 在xib文件中，将需要添加控制器的视图控件的类名称改为控制器的类名称。如选中BlockView，并在属性检查器中将Class一项改为WDBlockView（有智能提示）。
+    - **2 在xib文件中，将需要添加控制器的视图控件的类名称改为控制器的类名称。如选中BlockView，并在属性检查器中将Class一项改为WDBlockView（有智能提示）。**
     
     ![](屏幕快照 2016-02-27 下午4.00.15.png)
     - 注意
@@ -84,3 +84,29 @@ xib文件与storyboard文件有许多的相似之处，但也有一些不同：
     4 但是若将WDBlockView类作为其他局部控件的控制器，如上文中的Label或者Button，由于其类型不匹配，所以这些局部控件无法将WDBlockView类作为其控制器
     >
     5 一个局部控件的类（控制器）只能修改为其相应类型的类
+    - **3 将xib添加到ViewController**
+        - 方式1 
+        ```objc
+        NSArray * xibArray = [[NSBundle mainBundle] loadNibNamed:@"Test" owner:nil options:nil];
+        WDBlockView * blockView = xibArray[1];
+        [self.view addSubview:blockView];
+        // 此时，xib文件中的BlockView控件就已经添加到视图中
+        ```
+        - 方式2
+        ```objc
+        // ViewController.m
+        WDBlockView * blockView = [WDBlockView blockview];
+        [self.view addSubview:blockView];
+        // WDBlockView.m
+        +(instancetype)blockView
+        {
+        NSString * str = NSStringFromClass(self); // 该函数只能用来类方法中，通过self类名来获得类名相应的字符串
+        return [[NSBundle mainBundle] loadNibNamed:str owner:nil options:nil][1];
+        }
+        // 此时，在viewcontroller中通过类名方法就可以创建一个WDBlockView类的控件，并且该控件就是xib文件中的BlockView控件
+        ```
+        - 注意
+        > 只有通过```- (NSArray *)loadNibNamed:(NSString *)name owner:(id)owner options:(NSDictionary *)options;```等方法才能将xib中的控件添加到控制器中
+        >
+        推荐采用方式2，因为方式2完整的将控件内部操作封装起来，外界只需通过一个blockview类方法接口就可以实现控件创建。外界无需知道，也不应该知道内部的具体实现细节
+        
