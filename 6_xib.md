@@ -23,4 +23,33 @@ xib文件与storyboard文件有许多的相似之处，但也有一些不同：
 #### 3 Xib的使用方法
 1 通过类似于storyboard的方法进行控件的创建，并进行属性设置
 ![](屏幕快照 2016-02-27 下午3.23.29.png)
-   - 
+   - 此时创建了一个名为WDBlockView.xib的文件，并且在文件中添加了一个View视图控件，视图控件中包含一个名为image的ImageView控件和一个名为name的Label控件
+
+2 向控制器中添加xib文件
+   - 与资源文件类似，xib文件也需要通过一些方法来添加到ViewController控制器中
+   - xib添加的两种方式
+    - 方式1
+    ```objc
+     NSBundle * bundle = [NSBundle mainBundle];
+    NSString * path = [bundle pathForResource:@"WDBlockView.xib" ofType:nil];
+    NSArray * xibArray = [NSArray arrayWithContentsOfFile:path];
+    NSArray * xibArray = [bundle loadNibNamed:@"Test" owner:nil options:nil];
+    NSLog(@"%@",xibArray); // 得到一个包含xib文件中所有控件的数组
+    [self.view addSubview:xibArray[1]];
+    ```
+    - 方式2
+    ```objc
+    //UINib * nib = [UINib nibWithNibName:@"WDBlockView" bundle:[NSBundle mainBundle]];
+    UINib * nib = [UINib nibWithNibName:@"WDBlockView" bundle:nil];
+    NSArray * xibArray2 = [nib instantiateWithOwner:nil options:nil];
+    NSLog(@"%@",xibArray2);
+    [self.view addSubview:xibArray2[0]];
+    ```
+    
+    - 注意：
+    >1 xib文件是面向开发过程中的一个文件类型，xib文件在编译后将会变成nib文件，因此xib的许多方法中都包含nib
+    >
+    >2 无法使用pathForResource: ofType: 方法来从mainBundle中获得xib文件
+    >
+    >3 当方法的形参是```NSBundle *``` 类型时，可以通过nil表示mainBundle。方式2中nib的创建可以改为：```UINib * nib = [UINib nibWithNibName:@"Test" bundle:nil]; ```    
+     
