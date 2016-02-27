@@ -5,7 +5,7 @@
 
 选择User Interface，就会出现四个选项卡：
 - Storyboard 创建一个storyboard文件
-- View 创建一个含有一个UIView视图的xib文件
+- View 创建一个含有一个UIView视图控件的xib文件
 - Empty 创建一个xib文件，文件内部无空间
 - Launch Screen 创建一个启动界面文件
 
