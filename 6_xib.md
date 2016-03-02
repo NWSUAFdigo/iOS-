@@ -144,4 +144,7 @@ xib文件与storyboard文件有许多的相似之处，但也有一些不同：
     - **awakeFromNib负责控件创建完成后的某些操作**，此时控件已经创建完成，连线也已经实现，在这个方法中修改scrollView控件的背景色是可以实现的
 - 注意：
 > 1 通过代码创建的控件，无论是以init还是类方法创建，其最开始一定要先调用**initWithFrame:**方法
+>
+所以如果使用代码创建控件，并且在控件的在init方法中添加了一个scrollView子控件，那么在initWithFrame:方法中修改子控件的颜色：```self.scrollView.backgroundColor = [UIColor blueColor];```是没有效果的，因为通过代码创建的控件会首先执行initWithFrame:方法，然后才会执行init方法
+>
 2 通过xib或者storyboard创建的控件，其最开始一定要先调用**initWithCoder:**方法
