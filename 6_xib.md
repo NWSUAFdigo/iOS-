@@ -110,3 +110,34 @@ xib文件与storyboard文件有许多的相似之处，但也有一些不同：
         >
         推荐采用方式2，因为方式2完整的将控件内部操作封装起来，外界只需通过一个blockview类方法接口就可以实现控件创建。外界无需知道，也不应该知道内部的具体实现细节
         
+#### 4 Xib的代码原理
+我们已经知道，xib与storyboard文件的本质是一个xml类型的文件，并且其最终还是通过代码的方式来实现控件的添加和属性的设置。
+
+在编译过程中，xib文件中的控件也需要先初始化，那么xib文件创建的控件的初始化与通过代码创建的控件的初始化是不同的：
+- 代码：代码创建的控件的初始化可以通过init方法，或者initWithFrame:方法来进行创建
+- xib：xib创建的控件是通过**initWithCoder:**方法来进行创建的，并且在创建完成后还会调用一个名为**awakeFromNib**的方法
+- 如果想在控件创建完成后对控件进行某些操作，那么两种方式创建的控件，代码需要添加的地方也是不同的
+    ```objc
+    // 通过xib创建的控件会先后调用以下两个方法
+    -(instancetype)initWithCoder:(NSCoder *)aDecoder{
+    if (self = [super initWithCoder:aDecoder]) {
+        NSLog(@"initWithCoder");
+        self.scrollView.backgroundColor = [UIColor blueColor];
+        /*
+         ......
+         */
+    }
+    return self;
+    }
+
+    -(void)awakeFromNib{
+        self.scrollView.backgroundColor = [UIColor blackColor];
+    }
+    ```
+    - 通过xib创建的控件会先后调用initWithCoder:和awakeFromNib两个方法
+    - initWithCoder:方法负责创建控件，通过xib或者storyboard创建的控件都是调用该方法，而不是init或者initWithFrame:
+    - initWithCoder:方法中进行的是控件的创建过程，此时控件并没有完全创建完毕，控件的连线也没有实现，所以```self.scrollView.backgroundColor = [UIColor blackColor];```这一句里面，self.scrollView还没有和scrollView控件进行连线，此时self.scrollView为空，无法改变背景色
+    - **awakeFromNib负责控件创建完成后的某些操作**，此时控件已经创建完成，连线也已经实现，在这个方法中修改scrollView控件的背景色是可以实现的
+- 注意：
+> 1 通过代码创建的控件，无论是以init还是类方法创建，其最开始一定要先调用**initWithFrame:**方法
+2 通过xib或者storyboard创建的控件，其最开始一定要调用**nitWithCoder:**方法
