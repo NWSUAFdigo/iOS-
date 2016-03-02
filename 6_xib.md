@@ -145,6 +145,8 @@ xib文件与storyboard文件有许多的相似之处，但也有一些不同：
 - 注意：
 > 1 通过代码创建的控件，无论是以init还是类方法创建，其最开始一定要先调用**initWithFrame:**方法
 >
-所以如果使用代码创建控件，并且在控件的在init方法中添加了一个scrollView子控件，那么在initWithFrame:方法中修改子控件的颜色：```self.scrollView.backgroundColor = [UIColor blueColor];```是没有效果的，因为通过代码创建的控件会首先执行initWithFrame:方法，然后才会执行init方法
+所以如果使用代码创建控件，并且在控件的在init方法中添加了一个scrollView子控件，那么在initWithFrame:方法中修改子控件的颜色：```self.scrollView.backgroundColor = [UIColor blueColor];```是没有效果的，因为通过代码创建的控件会首先执行initWithFrame:方法，而此时scrollView子控件还没有创建，然后才会执行init方法
+>
+而如果是在initWithFrame:方法中修改控件的颜色：```self.backgroundColor = [UIColor blueColor];```是会有效果的，因为通过代码创建的控件在调用initWithFrame:方法时，控件已经创建完成，可以对控件进行某些操作
 >
 2 通过xib或者storyboard创建的控件，其最开始一定要先调用**initWithCoder:**方法
