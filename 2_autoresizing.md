@@ -51,5 +51,6 @@ typedef NS_OPTIONS(NSUInteger, UIViewAutoresizing) {
     [self.view addSubview:btn];
 }
   ```
-  - 上述通过代码创建了一个按钮控件，并设置了控件的
+  - 上述通过代码创建了一个按钮控件，并设置了控件的autoresizingMask属性
+  - 由于需要固定控件到屏幕左边和上边的距离，所以设置右边和下边为弹性，通过符号|连接
   
