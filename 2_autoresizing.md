@@ -3,6 +3,7 @@
 ####2 使用方法
 - 使用Autoresizing需要首先将Auto Layout关闭，在ViewController的右侧属性面板中关闭![](屏幕快照 2016-03-03 下午4.55.00.png)
 - 此时，在storyboard中添加一些控件，然后在右侧的属性面板中就可以查看到Autoresizing属性![](屏幕快照 2016-03-03 下午4.56.04.png)
+
 #### 3 使用说明
 - Autoresizing属性面板的左侧为设置项，右侧为预览图
 - 左侧的设置项一共有6条线，其中有4条外围线，正方形内部有2条线，注意内部是2条，不是4条
@@ -14,3 +15,25 @@
 - 内部线
   - 内部线的虚线表示控件的尺寸是固定不变的
   - **内部线的实线表示控件的尺寸和屏幕的尺寸是成比例的**，比如若想让控件的宽度在任何情况下都等于屏幕的宽度，可以将内部线的横线设置为实线，并在storyboard中将控件的宽度拉长到整个屏幕
+
+#### 4 Autoresizing的代码实现
+- 在代码中同样可以使用Autoresizing技术，它通过控件的autoresizingMask属性进行设置
+- autoresizingMask：它是UIView中的一个属性，专门用来设置控件的Autoresizing，它是一个UIViewAutoresizing类型（类似于枚举，但是可以多个选择）变量
+```objc
+typedef NS_OPTIONS(NSUInteger, UIViewAutoresizing) {
+    UIViewAutoresizingNone                 = 0,
+    UIViewAutoresizingFlexibleLeftMargin   = 1 << 0,
+    UIViewAutoresizingFlexibleWidth        = 1 << 1,
+    UIViewAutoresizingFlexibleRightMargin  = 1 << 2,
+    UIViewAutoresizingFlexibleTopMargin    = 1 << 3,
+    UIViewAutoresizingFlexibleHeight       = 1 << 4,
+    UIViewAutoresizingFlexibleBottomMargin = 1 << 5
+};
+```
+- UIViewAutoresizing类型中一共有7个成员变量，包括1个none，2个尺寸设置成员变量，4个位置设置成员变量
+  - 尺寸设置成员变量，包括：UIViewAutoresizingFlexibleWidth、UIViewAutoresizingFlexibleHeight
+    - 默认情况下，控件尺寸是固定的，只有设置控件的两个尺寸时，尺寸才会是弹性的，也就是和屏幕是成比例的
+  - 位置设置成员变量：其余带有Margin的变量都是位置设置成员变量
+    - 注意：
+    > 与storyboard中的外围线不同，代码中控件到屏幕各边的距离默认是固定的，也就是**代码创建的控件，其Autoresizing中的4条外围线默认是实线！！**
+  
