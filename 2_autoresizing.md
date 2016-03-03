@@ -36,4 +36,20 @@ typedef NS_OPTIONS(NSUInteger, UIViewAutoresizing) {
   - 位置设置成员变量：其余带有Margin的变量都是位置设置成员变量
     - 注意：
     > 与storyboard中的外围线不同，代码中控件到屏幕各边的距离默认是固定的，也就是**代码创建的控件，其Autoresizing中的4条外围线默认是实线！！**
+    >
+    > 比如：如果要设置控件位于屏幕的左上角，那么在代码中需要设置autoresizingMask属性的UIViewAutoresizingFlexibleRightMargin和UIViewAutoresizingFlexibleBottomMargin,也就是让右方和下方是弹性的
+
+  ```objc
+  - (void)viewDidLoad {
+    [super viewDidLoad];
+
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    [btn setTitle:@"测试" forState:UIControlStateNormal];
+    btn.frame = CGRectMake(20, 20, 80, 20);
+    btn.backgroundColor = [UIColor grayColor];
+    btn.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
+    [self.view addSubview:btn];
+}
+  ```
+  - 上述通过代码创建了一个按钮控件，并设置了控件的
   
