@@ -53,4 +53,5 @@ typedef NS_OPTIONS(NSUInteger, UIViewAutoresizing) {
   ```
   - 上述通过代码创建了一个按钮控件，并设置了控件的autoresizingMask属性
   - 由于需要固定控件到屏幕左边和上边的距离，所以设置右边和下边为弹性，通过符号|连接
+  - 最好在设置好控件的autoresizingMask属性后再将其添加到父视图中
   
