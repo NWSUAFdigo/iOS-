@@ -1,5 +1,5 @@
 # Autoresizing
-####1 介绍：Autoresizing是苹果公司推出的第一个屏幕适配解决方案
+####1 介绍：Autoresizing是苹果公司推出的第一个屏幕适配解决方案，用以解决不同设备以及横竖屏的屏幕适配问题
 ####2 使用方法
 - 使用Autoresizing需要首先将Auto Layout关闭，在ViewController的右侧属性面板中关闭![](屏幕快照 2016-03-03 下午4.55.00.png)
 - 此时，在storyboard中添加一些控件，然后在右侧的属性面板中就可以查看到Autoresizing属性![](屏幕快照 2016-03-03 下午4.56.04.png)
