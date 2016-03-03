@@ -1,7 +1,6 @@
 # Summary
 
 * [简介](README.md)
-* 02适配
 * [01UI](01ui.md)
    * [1 storyboard](1_storyboard.md)
    * [2 UIView](2_uiview.md)
@@ -10,4 +9,5 @@
    * [5 模型](5_mo_xing.md)
    * [6 Xib](6_xib.md)
    * 02适配
+* 02适配
 
