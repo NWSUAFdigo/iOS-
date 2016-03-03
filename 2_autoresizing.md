@@ -55,3 +55,5 @@ typedef NS_OPTIONS(NSUInteger, UIViewAutoresizing) {
   - 由于需要固定控件到屏幕左边和上边的距离，所以设置右边和下边为弹性，通过符号|连接
   - 最好在设置好控件的autoresizingMask属性后再将其添加到父视图中
   
+#### 5 Autoresizing的局限性
+使用Autoresizing技术可以完成大部分屏幕适配工作，但是无法解决兄弟控件（同一个父控件里面的两个子控件）之间的相关性问题，如让一个子控件和另一个子控件在任何情况下都相距20个点。此时，苹果推出了Auto Layout技术。
