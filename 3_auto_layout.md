@@ -52,4 +52,7 @@
    -  此例中：View.Center Y = 蓝色.Center Y + 0 * 1
    -  可以选择![](屏幕快照 2016-03-04 下午12.02.44.png) Reverse First And Second Item来讲两个项目调换位置
 
+#### 4 注意事项
+
+
 
