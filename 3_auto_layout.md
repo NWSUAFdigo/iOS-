@@ -8,11 +8,14 @@
   - 在Xcode的属性控制面板中，点击第一个选项，就可以查看Auto Layout的开启和关闭![](屏幕快照 2016-03-04 上午10.47.37.png)
   - 在任何情况下点击属性面板的第一个选项，都可以查看到Auto Layout的开启关闭状态
 - Auto Layout的使用
-  - Auto Layout的使用位于storyboard文件中InterBulider的右下角的四个按钮![](屏幕快照 2016-03-04 上午10.52.18.png)，后三个按钮是Auto Layout最常使用的按钮，每一个按钮都有一个特定的功能
+  - Auto Layout的使用位于storyboard文件中Interface Bulider的右下角的四个按钮![](屏幕快照 2016-03-04 上午10.52.18.png)，后三个按钮是Auto Layout最常使用的按钮，每一个按钮都有一个特定的功能
   - ![](屏幕快照 2016-03-04 上午10.55.28.png)
     - 最后一个按钮用于将已经设定好的各个约束进行各种操作
     - Selected Views：对选中的控件进行操作
     - All Views in View Controller：对位于一个View Controller中的所有控件进行操作
-    - 
+    - 常用操作
+      - Update Frames：更新框架，即将已经设置好的各项约束在Interface Bulider中进行更新
+      - Clear Constraints： 清除约束。上半部分的该选项用于清除选中控件的所有约束，下半部分的该选项用于清除一个View Controller中的所有控件的所有约束
+  - 
 
 
