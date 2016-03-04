@@ -44,12 +44,12 @@
  - 在右侧的属性面板中，点击倒数第二个选项，在constraints中就可以查看该控件的各个约束情况，点击右侧的Edit就可以快速更改约束数据
     - ![](屏幕快照 2016-03-04 上午11.47.48.png)
     - 如选中的该约束：Trailing Space to: Superview，表示右侧到父视图的距离
-    - 该距离等于： Constant数值 乘以 Multiplier，目前等于0 * 1 = 0
+    - 该距离等于：Superview.trailing 乘以 Multiplier + Constant数值，目前等于Superview.trailing * 1 + 0 = Superview.trailing。
     - **双击该选项或者点击某条约束线，在属性面板的倒数第二个选项中就可以对控件的该约束线进行深层次修改**
  - ![](屏幕快照 2016-03-04 上午11.56.05.png)    ![](屏幕快照 2016-03-04 上午11.56.19.png) 
    - 左侧为位置关系修改面板，右侧为宽高修改面板
-   -  位置修改面板用的查看方式： First Item  **Relation**  (Second Item) + Constant * Multiplier
-   -  此例中：View.Center Y = 蓝色.Center Y + 0 * 1
+   -  位置修改面板用的查看方式： First Item  **Relation**  (Second Item) * Multiplier + Constant 
+   -  此例中：View.Center Y = 蓝色.Center Y * 1 + 0。
    -  可以选择![](屏幕快照 2016-03-04 下午12.02.44.png) Reverse First And Second Item来讲两个项目调换位置
 
 #### 4 注意事项
