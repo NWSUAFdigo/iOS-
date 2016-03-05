@@ -54,6 +54,7 @@
   - 该方法其实和storyboard中约束的属性面板非常相似：
   
     ![](屏幕快照 2016-03-04 上午11.56.05.png)
-  - 该方法表示的含义用数学公式表示如下：
+  - 该方法表示的含义用数学公式表示如下：First Item  **Relation**  (Second Item) * Multiplier + Constant 
+   -  此例中：View.Center Y = 蓝色.Center Y * 1 + 0。
 
 
