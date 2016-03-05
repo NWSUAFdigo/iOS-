@@ -45,7 +45,12 @@
   - 该方法参数众多，现解释如下
     - 返回值： instancetype，即返回一个NSLayoutConstraint约束对象
     - view1：需要进行操作的控件对象
-    - attr1：需要进行操作的是控件对象的哪个
+    - attr1：需要进行操作的是控件对象的哪个属性，该参数是一个枚举类型，包含可控件的上下左右各边，以及宽度和高度，水平中心线和垂直中心线
+    - relation：运算关系，也是一个枚举类型，包含= ， >= , <= 
+    - view2：需要和view1进行约束的对象，如果是对view1的宽高进行约束，那么此参数为nil
+    - attr2：view2需要进行操作的属性，如果是对view1的宽高进行约束，那么此参数为NSLayoutAttributeNotAnAttribute
+    - multiplier：倍数
+    - c：constant：常数
   
 
 
