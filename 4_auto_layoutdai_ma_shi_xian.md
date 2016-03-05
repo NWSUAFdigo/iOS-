@@ -38,6 +38,14 @@
   > 1 用代码设置Auto Layout属性时，一定要在设置之前将控件的translatesAutoresizingMaskIntoConstraints属性设置为NO，该属性表示是否将Autosizing转换为Auto Layout。因为两者之间存在某些冲突，所以需要禁用该属性
   >
     >2 在添加Auto Layout之前，必须要先将控件添加到父控件中，因为在设置Auto Layout时，某些约束可能需要用到子控件与父控件之间的关系
-
+- 约束创建
+  - 约束创建通过约束对象类型NSLayoutConstraint，采用如下方法：
+  ```+(instancetype)constraintWithItem:(id)view1 attribute:(NSLayoutAttribute)attr1 relatedBy:(NSLayoutRelation)relation toItem:(nullable id)view2 attribute:(NSLayoutAttribute)attr2 multiplier:(CGFloat)multiplier constant:(CGFloat)c;
+```
+  - 该方法参数众多，现解释如下
+    - 返回值： instancetype，即返回一个NSLayoutConstraint约束对象
+    - view1：需要进行操作的控件对象
+    - attr1：需要进行操作的是控件对象的哪个
+  
 
 
