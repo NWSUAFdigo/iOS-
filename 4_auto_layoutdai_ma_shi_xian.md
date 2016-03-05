@@ -80,4 +80,17 @@
 
 #### 4 约束对象更改时的动画实现
 约束对象更改时，其动画的实现与普通的动画实现有所差别
-
+```objc
+/** 该方法在点击空白屏幕，即点击ViewController的最底层View控件时调用 */
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    self.right.constant = -50.0;
+    self.top.constant = 20.0;
+    
+    // 对于NSLayoutConstraint类型的约束对象，对其执行动画操作时，只需在动画执行前将修改完成，在动画的block中添加[需要执行约束更改的View对象 layoutIfNeeded];即可
+    [UIView animateWithDuration:2.0f animations:^{
+//        [self.topView layoutIfNeeded];
+        [self.topView.superview layoutIfNeeded];
+    }];
+}
+```
