@@ -20,4 +20,24 @@
   - 例：![](屏幕快照 2016-03-05 上午9.45.28.png)  
   - 该例中，Button1的直接父控件是View1，Button2的直接父控件是View2，所以Button2.leading = Button1.leading + 20;这条约束既不属于View1，也不属于View2，而是属于他们最近的一个共同父控件View
 
+#### 3 约束对象的代码创建
+约束对象是作用于控件上的，所以要使用约束对象必须先创建一个控件
+- 控件创建
+  ```objc
+  - (void)viewDidLoad {
+      [super viewDidLoad];
+    
+      UIView * view = [[UIView alloc] init];
+      view.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.9];
+      view.translatesAutoresizingMaskIntoConstraints = NO;
+      [self.view addSubview:view];
+      self.topView = view;
+    }
+  ```
+  - 注意：
+  > 1 用代码设置Auto Layout属性时，一定要在设置之前将控件的translatesAutoresizingMaskIntoConstraints属性设置为NO，该属性表示是否将Autosizing转换为Auto Layout。因为两者之间存在某些冲突，所以需要禁用该属性
+  >
+    >2 在添加Auto Layout之前，必须要先将控件添加到父控件中，因为在设置Auto Layout时，某些约束可能需要用到子控件与父控件之间的关系
+
+
 
