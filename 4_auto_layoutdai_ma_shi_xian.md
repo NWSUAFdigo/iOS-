@@ -31,7 +31,6 @@
       view.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.9];
       view.translatesAutoresizingMaskIntoConstraints = NO;
       [self.view addSubview:view];
-      self.topView = view;
     }
   ```
   - 注意：
@@ -56,5 +55,26 @@
     ![](屏幕快照 2016-03-04 上午11.56.05.png)
   - 该方法表示的含义用数学公式表示如下：First Item  **Relation**  (Second Item) * Multiplier + Constant 
    -  此例中：View.Center Y = 蓝色.Center Y * 1 + 0。
-
+  - 控件的约束创建如下：
+    ```objc
+    // height
+    NSLayoutConstraint * height = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:60];
+    [view addConstraint:height];
+    
+    // left
+    NSLayoutConstraint * left = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:view.superview attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0];
+    [view.superview addConstraint:left];
+    
+    // right
+    NSLayoutConstraint * right = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:view.superview attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0];
+    [view.superview addConstraint:right];
+    
+    // top
+    NSLayoutConstraint * top = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:view.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
+    [view.superview addConstraint:top];
+    ```
+    - 注意：
+    > **在约束对象创建完成后，一定要将约束对象放到它所属的那个控件中！**
+    > 
+    > 本例中，height属于view控件，所以放入view控件中，而其他left，right，top都是view控件和它的父控件所发生的约束关系，所以需要将这些约束对象放入view.superview中
 
