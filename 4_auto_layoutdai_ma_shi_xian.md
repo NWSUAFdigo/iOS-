@@ -31,6 +31,7 @@
       view.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.9];
       view.translatesAutoresizingMaskIntoConstraints = NO;
       [self.view addSubview:view];
+      self.topView = view;
     }
   ```
   - 注意：
@@ -94,3 +95,7 @@
     }];
 }
 ```
+- 注意：
+> 在调用layoutIfNeeded方法时，调用该方法的对象必须是该约束所属的对象
+> 
+> 如上例中，self.right和self.top都属于self.topView控件和其父视图之间的约束，所以需要使用self.topView.superview来调用layoutIfNeeded方法 
