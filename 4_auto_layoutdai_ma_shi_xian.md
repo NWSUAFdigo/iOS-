@@ -51,6 +51,8 @@
     - attr2：view2需要进行操作的属性，如果是对view1的宽高进行约束，那么此参数为NSLayoutAttributeNotAnAttribute
     - multiplier：倍数
     - c：constant：常数
+  - 该方法其实和storyboard中约束的属性面板非常相似：
   
+    ![](屏幕快照 2016-03-04 上午11.56.05.png)
 
 
