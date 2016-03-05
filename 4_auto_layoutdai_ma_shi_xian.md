@@ -96,6 +96,8 @@
 }
 ```
 - 注意：
-> 在调用layoutIfNeeded方法时，调用该方法的对象必须是该约束所属的对象
+> 在调用layoutIfNeeded方法时，调用该方法的对象必须是该约束所属的控件的父控件
 > 
 > 如上例中，self.right和self.top都属于self.topView控件和其父视图之间的约束，所以需要使用self.topView.superview来调用layoutIfNeeded方法 
+> 
+> 不管是对控件的四周还是宽高进行改变，都需要控件的父控件来调用layoutIfNeeded方法 
