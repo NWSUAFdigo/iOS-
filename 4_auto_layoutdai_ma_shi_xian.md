@@ -78,3 +78,5 @@
     > 
     > 本例中，height属于view控件，所以放入view控件中，而其他left，right，top都是view控件和它的父控件所发生的约束关系，所以需要将这些约束对象放入view.superview中
 
+#### 4 约束对象更改时的动画实现
+
