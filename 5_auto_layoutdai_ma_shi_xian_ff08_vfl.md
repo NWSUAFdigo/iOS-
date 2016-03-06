@@ -30,3 +30,35 @@ Visual Format Language 可视化格式语言：该语言是苹果公司推出的
   - 方向：包含H或者V，表示水平或垂直，该信息必须写入
   - 距离：控件的边缘到另一个控件边缘的距离，如果距离为0则省略 -距离-，如：H:|[view1(==20)]，如果距离为默认，则省略 距离- ，如：H:|-[view1]。默认距离约为18-19
   - 长度：控件的高度或者宽度，如果没有限制宽高，则不写
+
+#### 4 注意事项
+- VFL中一旦包含乘除法就会崩溃，例如让view2的宽度等于view1的宽度乘以0.5在VFL中很难实现
+  ```objc
+  NSString * view2VflH = @"H:[view2(==view1*0.5)]-|";
+  NSDictionary * view2Dict = NSDictionaryOfVariableBindings(view1,view2);
+  NSArray * view2ConstraintH = [NSLayoutConstraint constraintsWithVisualFormat:view2VflH 
+                                                   options:kNilOptions 
+                                                   metrics:nil 
+                                                   views:view2Dict];
+ [view2.superview addConstraints:view2ConstraintH];
+  ```
+    - 该段代码一旦执行，立即崩溃
+- VFL和传统的创建NSLayoutConstraint约束对象可以进行混编来达到对控件进行约束的目的
+   ```objc
+   NSLayoutConstraint * view2Leading = [NSLayoutConstraint constraintWithItem:view2
+                                                            attribute:NSLayoutAttributeLeading
+                                                            relatedBy:NSLayoutRelationEqual
+                                                            toItem:view2.superview
+                                                            attribute:NSLayoutAttributeCenterX
+                                                            multiplier:1.0
+                                                            constant:0];
+    [view2.superview addConstraint:view2Leading];
+    
+    NSString * view2VflH = @"H:[view2]-20-|";
+    NSDictionary * view2Dict = NSDictionaryOfVariableBindings(view1,view2);
+    NSArray * view2ConstraintH = [NSLayoutConstraint constraintsWithVisualFormat:view2VflH
+                                                     options:kNilOptions
+                                                     metrics:nil
+                                                     views:view2Dict];
+    [view2.superview addConstraints:view2ConstraintH];
+   ```
