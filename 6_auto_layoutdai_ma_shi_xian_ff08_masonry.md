@@ -75,9 +75,9 @@ view1.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:1.0 alpha:1.0];
   - 方式3
   ```objc
   [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view).offset(20);
-        make.top.offset(20);
-        make.right.equalTo(self.view.mas_right).offset(-20);
+        make.left.and.top.equalTo(self.view).with.offset(20);
+        // make.top.offset(20);
+        make.right.offset(-20);
         make.height.mas_equalTo(60);
   }];
   ```
