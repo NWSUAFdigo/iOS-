@@ -42,12 +42,12 @@ view1.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:1.0 alpha:1.0];
 3. 对控件进行约束
   - 方式1
 ```objc
-[view1 mas_makeConstraints:^(MASConstraintMaker *make) {
-      make.left.equalTo(self.view.mas_left).offset(20);
-      make.top.equalTo(self.view.mas_top).offset(20);
-      make.right.equalTo(self.view.mas_right).offset(-20);
-      make.height.equalTo(@60);
-}];
+  [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(20);
+        make.top.equalTo(self.view.mas_top).offset(20);
+        make.right.equalTo(self.view.mas_right).offset(-20);
+        make.height.equalTo(@60);
+  }];
 ```
     - 方法说明
       - 通过mas_makeConstraints:方法设置约束
@@ -56,4 +56,28 @@ view1.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:1.0 alpha:1.0];
       - 通过对make中的各项属性进行设置来进行控件的约束设置
     - 约束设置说明
       - 代码通俗易懂，以第一个约束为例，该句含义：让控件左边等于self.view的左边加20
-      - 约束设置通过点语法来进行，
+      - 约束设置通过点语法来进行
+      - 框架中没有self.view.left这个属性，必须使用self.view.mas_left来表示左边线
+  - 方式2
+  ```objc
+  [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(20);
+        make.top.offset(20);
+        make.right.equalTo(self.view.mas_right).offset(-20);
+        make.height.mas_equalTo(60);
+  }];
+  ```
+  说明
+    - 可以省略equalTo后面的mas_left，如果省略就表示是控件的某一边和另一个控件的对应的一边进行约束
+    - 可以省略掉equalTo，如果省略表示是控件和其父控件进行约束
+    - 除了equalTo，Masonry还提供了另外一种方式mas_equalTo
+    - 两者的区别在与后者是前者的再一次包装，使用equalTo，括号中的内容必须是OC对象，所以60需要封装为@60。而使用mas_equalTo，括号中的内容可以是任何变量，Masonry会对其进行判断并封装
+  - 方式3
+  ```objc
+  [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(20);
+        make.top.offset(20);
+        make.right.equalTo(self.view.mas_right).offset(-20);
+        make.height.mas_equalTo(60);
+  }];
+  ```
