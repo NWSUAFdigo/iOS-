@@ -95,6 +95,8 @@ view1.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:1.0 alpha:1.0];
 //define this constant if you want to enable auto-boxing for default syntax
 #define MAS_SHORTHAND_GLOBALS
 ```
+> **两个宏必须写在Masonry.h头文件的前面！！**
+
 使用第一个宏可以省略掉大部分的mas_，使代码更易读
 ```objc
 #define MAS_SHORTHAND
