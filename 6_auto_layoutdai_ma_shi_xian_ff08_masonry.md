@@ -96,3 +96,30 @@ view1.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:1.0 alpha:1.0];
 #define MAS_SHORTHAND_GLOBALS
 ```
 使用第一个宏可以省略掉大部分的mas_，使代码更易读
+```objc
+#define MAS_SHORTHAND
+#import "Masonry.h"
+
+[view1 makeConstraints:^(MASConstraintMaker *make) {
+    make.left.equalTo(self.view.left).offset(20);
+    make.top.equalTo(self.view.top).offset(20);
+    make.right.equalTo(self.view.right).offset(-20);
+    make.height.mas_equalTo(60);
+}];
+```
+- 使用第一个宏后，方法名和控件中的mas_就可以省略掉
+- mas_equalTo还不能替换为equalTo
+
+使用第二个宏后，mas_equalTo就可以完全等同于equalTo
+```objc
+#define MAS_SHORTHAND
+#define MAS_SHORTHAND_GLOBALS
+#import "Masonry.h"
+
+[view1 makeConstraints:^(MASConstraintMaker *make) {
+    make.left.equalTo(self.view.left).offset(20);
+    make.top.equalTo(self.view.top).offset(20);
+    make.right.equalTo(self.view.right).offset(-20);
+    make.height.equalTo(60);
+}];
+```
