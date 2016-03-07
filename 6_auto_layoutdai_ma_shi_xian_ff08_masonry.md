@@ -85,6 +85,8 @@ view1.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:1.0 alpha:1.0];
     - 对于相似约束操作，可以合并为一条约束语句，如第一句
     - and和with属性是一个空属性，其返回的还是调用该属性的self本身。作用就是用来提示，使代码看起来更通顺一些
   - Masnory中还有很多书写方法，但是**在今后开发中，为了代码的易读性，尽量使用方法3的第一条约束这种格式书写**
+4. Masonry约束属性
+  - Masonry中除了常规的left，right，top，bottom等约束属性外，还可以对size，center，edge等属性进行约束
 
 ####4 Masonry改进
 由于Masonry中有些地方需要书写mas_ ，而有些地方又不用，很容易造成使用混乱。在以后的更新版本中提供了两个宏用于提高书写便利和代码阅读
