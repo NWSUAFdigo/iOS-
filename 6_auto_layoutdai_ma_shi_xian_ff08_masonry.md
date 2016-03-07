@@ -81,3 +81,7 @@ view1.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:1.0 alpha:1.0];
         make.height.mas_equalTo(60);
   }];
   ```
+  说明
+    - 对于相似约束操作，可以合并为一条约束语句，如第一句
+    - and和with属性是一个空属性，其返回的还是调用该属性的self本身。作用就是用来提示，使代码看起来更通顺一些
+  - Masnory中还有很多书写方法，但是**在今后开发中，为了代码的易读性，尽量使用方法3的第一条约束这种格式书写**
