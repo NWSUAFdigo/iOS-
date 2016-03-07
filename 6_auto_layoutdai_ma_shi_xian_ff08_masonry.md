@@ -29,4 +29,31 @@ view1.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:1.0 alpha:1.0];
 > 在使用Auto Layout方法进行控件布局时，不论使用哪种方法，必须先将控件添加到父视图中才能进行约束
 > 
 > 由于Masonry已将将 ```view1.translatesAutoresizingMaskIntoConstraints = NO;```进行封装，所以在创建控件时，该属性可以不用再声明
-2. 使用
+2. 使用```- (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *))block;```方法来设置控件约束
+  - 设置控件约束的常用方法
+  ```objc
+  // 该方法用于设置控件的约束
+  -(NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *))block;
+  // 该方法用于修改控件的约束
+  -(NSArray *)mas_updateConstraints:(void(^)(MASConstraintMaker *))block
+  // 该方法用于重新设置控件约束，此时，之前对于该控件的所有约束将会删除，相当于storyboard中的 Clear Constraints
+  -(NSArray *)mas_remakeConstraints:(void(^)(MASConstraintMaker *make))block
+  ```
+3. 对控件进行约束
+  - 方式1
+```objc
+[view1 mas_makeConstraints:^(MASConstraintMaker *make) {
+      make.left.equalTo(self.view.mas_left).offset(20);
+      make.top.equalTo(self.view.mas_top).offset(20);
+      make.right.equalTo(self.view.mas_right).offset(-20);
+      make.height.equalTo(@60);
+}];
+```
+    - 方法说明
+      - 通过mas_makeConstraints:方法设置约束
+      - 对哪个控件进行约束，就使用哪个控件来调用该方法
+      - 该方法传递一个block代码块，而代码块中包含一个MASConstraintMaker类型的参数make
+      - 通过对make中的各项属性进行设置来进行控件的约束设置
+    - 约束设置说明
+      - 代码通俗易懂，以第一个约束为例，该句含义：让控件左边等于self.view的左边加20
+      - 约束设置通过点语法来进行，
