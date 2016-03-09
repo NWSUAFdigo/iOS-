@@ -10,4 +10,4 @@
 
 #### 2 View Controller控制器与ViewController类的关系
 我们知道，ViewController类是项目创建时，系统帮我们创建的，那么ViewController类和程序启动后首先加载的View Controller控制器到底是一个什么关系？
-- 前文在提到xib时
+- 前文在提到xib时说道，xib不仅可以单独使用，
