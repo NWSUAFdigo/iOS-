@@ -10,4 +10,5 @@
 
 #### 2 View Controller控制器与ViewController类的关系
 我们知道，ViewController类是项目创建时，系统帮我们创建的，那么ViewController类和程序启动后首先加载的View Controller控制器到底是一个什么关系？
-- 前文在提到xib时说道，xib不仅可以单独使用来添加到主视图中，也可以和xib控制器一起
+- 前文在提到xib时说道，xib不仅可以单独使用来添加到主视图中，也可以和xib控制器文件（.h和.m文件）一起结合使用。而View Controller控制器与ViewController类的关系就非常类似于这种关系
+- **实际上View Controller控制器也类似于xib一样，可以不需要一个类文件而单独运行**，
