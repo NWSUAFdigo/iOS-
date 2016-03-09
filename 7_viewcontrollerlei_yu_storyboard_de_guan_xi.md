@@ -1,2 +1,7 @@
 # ViewController类与storyboard的关系
+#### 1
+- 前文提到，当一个程序启动时，首先要加载的是main.storyboard这个文件。并且会加载storyboard文件中箭头所指向的那个控制器
+![](屏幕快照 2016-03-09 下午4.23.14.png)
+- 控制器的种类是很多的，比如View Controller \ Navigation Controller \ Table View Controller可以在Xcode右下角的空间面板中看到，只要是黄色圆形图标，那么它们所表示的就是控制器
 
+  ![](屏幕快照 2016-03-09 下午4.26.05.png) 
