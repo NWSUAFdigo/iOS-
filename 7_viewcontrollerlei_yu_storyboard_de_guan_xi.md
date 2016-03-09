@@ -25,3 +25,6 @@
 前文提到，View Controller控制器本质上是一个UIViewController类的实例对象。但是不是任何的控制器都可以成为UIViewController类的实例对象，想成为UIViewController类的实例对象是有条件的
 - 进入UIViewController.h文件中我们可以看到，该类中有很多的方法和属性。最开始的一个属性是view。它表明要想成为UIViewController类的控制器，首先控制器中必须要有一个UIView类型的控件view。
 - 而在View Controller控制器左侧的导航面板中可以看到，一个View Controller控制器创建之后就会自带一个View控件，也就是我们说的主视图。所有的其他控件都是在该控件上进行创建的
+ 
+  ![](屏幕快照 2016-03-09 下午5.11.31.png)
+- 所以每一种控制器都是一个特定的类的实例对象。如View Controller控制器就是UIViewController或者其子类ViewController的实例对象。而Table View Controller控制器就是UITableViewController或者其子类的实例对象。
