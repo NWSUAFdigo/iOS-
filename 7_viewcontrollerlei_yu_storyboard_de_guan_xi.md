@@ -1,2 +1,2 @@
-# 7 ViewController类与storyboard的关系
+# ViewController类与storyboard的关系
 
