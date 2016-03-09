@@ -28,3 +28,4 @@
  
   ![](屏幕快照 2016-03-09 下午5.11.31.png)
 - 所以每一种控制器都是一个特定的类的实例对象。如View Controller控制器就是UIViewController或者其子类ViewController的实例对象。而Table View Controller控制器就是UITableViewController或者其子类的实例对象。
+- 一种控制器只对应一种类，将View Controller控制器的类修改为UITableViewController是会出错的
