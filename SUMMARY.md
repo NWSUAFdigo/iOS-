@@ -8,7 +8,7 @@
    * [4 资源添加](4_zi_yuan_tian_jia.md)
    * [5 模型](5_mo_xing.md)
    * [6 Xib](6_xib.md)
-   * 7 ViewController类与storyboard的关系
+   * [7 ViewController类与storyboard的关系](7_viewcontrollerlei_yu_storyboard_de_guan_xi.md)
 * [02适配](02shi_pei.md)
    * [1 简介](1_jian_jie.md)
    * [2 Autoresizing](2_autoresizing.md)
