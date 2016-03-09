@@ -21,4 +21,5 @@
 - **ViewController类并不是UIKit框架中的一个类**，而它的父类UIViewController则是UIKit框架中的一个很重要的类。**ViewController类是一个自定义的类**，是苹果帮我们自定义的，并且帮我们将它取名为ViewController。我们当然可以修改这个类的名称，或者创建一个继承自UIViewController的一个新类，只需将storyboard中View Controller控制器的Class修改为新类的名称，那么就可以在这个新类中对View Controller控制器进行操作
 
 #### 4 View Controller控制器与UIViewController类的关系
-前文提到，View Controller控制器本质上是一个UIViewController类的实例对象。但是不是任何的控制器都可以成为UIViewController类的控制器，想成为UIViewController类的控制器是有条件的
+前文提到，View Controller控制器本质上是一个UIViewController类的实例对象。但是不是任何的控制器都可以成为UIViewController类的实例对象，想成为UIViewController类的实例对象是有条件的
+- 进入UIViewController.h文件中我们可以看到，
