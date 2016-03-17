@@ -38,6 +38,23 @@
   - 四个顶角同样保持不变
   - 四块图像按照单一方向，横向或纵向拉伸
   - 可拉伸区域按照横向和纵向双向拉伸
+
+#### 3 图片拉伸的方式二
+```- (UIImage *)resizableImageWithCapInsets:(UIEdgeInsets)capInsets```
+- 该方法相比较于方式一少了一个模式选择
+- 该方法默认的模式为平铺模式
+- 该方法在iOS5.0之后引入
+
+#### 4 图片拉伸的方式三
+```- (UIImage *)stretchableImageWithLeftCapWidth:(NSInteger)leftCapWidth topCapHeight:(NSInteger)topCapHeight```
+- 该方法的图片放大模式为拉伸模式
+- 相比较于以上两个方法，该方法只需传入两个数值：leftWidth和topHeight，相当于```UIEdgeInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat right)```中的left和top的值
+- 该方法中，其余两项的值是通过计算得到的
+  - right = width - left - 1;即right + left + 1 = width
+  - bottom = height - top - 1;即bottom + top + 1 = height;
+- 通过上述两个公式可以知道，左右两条线之间间隔了宽度为1个点的一条竖线
+- 上下两条线之间间隔了高度为1个点的一条横线
+- 也就是说，该方法中，可拉伸区域是一个点，而四块其他区域的图像都是一条线
   
 
 
