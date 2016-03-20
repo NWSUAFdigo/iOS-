@@ -45,3 +45,7 @@
 
 #### 3 启动界面
 苹果提供了两种方法来设置启动界面，一个是在左侧导航栏中的LaunchScreen.storyboard，另一个在图片资源目录下的Launch Images目录
+- LaunchScreen.storyboard
+  - 该文件相当于一个xib文件，就是添加启动画面用的
+  - 由于不同的屏幕需要适配不同的启动画面，所以很少使用这种方式来设置启动画面
+- 
