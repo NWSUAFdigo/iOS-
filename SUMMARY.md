@@ -11,7 +11,7 @@
    * [7 ViewController类与storyboard的关系](7_viewcontrollerlei_yu_storyboard_de_guan_xi.md)
    * [8 图片拉伸](8_tu_pian_la_shen.md)
    * [9 App图标和启动画面](9_apptu_biao_he_qi_dong_hua_mian.md)
-   * 10 数据存储
+   * [10 数据存储](10_shu_ju_cun_chu.md)
 * [02适配](02shi_pei.md)
    * [1 简介](1_jian_jie.md)
    * [2 Autoresizing](2_autoresizing.md)
