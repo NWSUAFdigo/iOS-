@@ -47,3 +47,21 @@ copy属于NSObject类中的一个方法，用于将一个对象复制一份。�
 | NSMutable* | copy | NS* | YES | 深拷贝（内容拷贝） |
 | NSMutable* | mutableCopy | NSMutable* | YES | 深拷贝（内容拷贝） |
 - 注：浅拷贝即拷贝一个指针，不生成新的对象；深拷贝即拷贝一个对象，生成一个新的对象
+
+#### 4 自定义类如何实现copy功能
+copy方法理论上可以在任何继承自NSObject的类中使用，但是如果是一个自定义类，直接使用copy方法将会出现错误
+- 自定义类直接使用copy的错误说明
+  - 如果一个自定义类直接使用copy，将会在编译的时候出错
+  - 例：
+  ```objc
+  Person * p = [[Person alloc] init];      
+  Person * p1 = [p copy];
+  ```
+  - Person是一个自定义类，如果直接将上面两句话编译，将会报错，错误原因如下：```reason: '-[Person copyWithZone:]: unrecognized selector sent to instance 0x100600080'```
+  - 未找到Person类的copyWithZone：方法
+  - 说明如果想要使用copy方法，必须要先实现copyWithZone：方法
+- copyWithZone方法
+  - ```- (id)copyWithZone:(NSZone *)zone；```
+  - 该方法是NSCopying协议中的一个方法，而且是必须实现的方法
+  - 所以可以推断，如果想要使用copy方法，那么自定义类必须要遵守NSCopying协议，并且实现copyWithZone方法
+  - 该方法的返回值就是copy方法的返回值。也就是说，如果想让自定义类通过copy方法后返回一个复制的对象，就必须在该方法中实现复制方法
