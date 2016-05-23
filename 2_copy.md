@@ -65,3 +65,29 @@ copy方法理论上可以在任何继承自NSObject的类中使用，但是如�
   - 该方法是NSCopying协议中的一个方法，而且是必须实现的方法
   - 所以可以推断，如果想要使用copy方法，那么自定义类必须要遵守NSCopying协议，并且实现copyWithZone方法
   - 该方法的返回值就是copy方法的返回值。也就是说，如果想让自定义类通过copy方法后返回一个复制的对象，就必须在该方法中实现复制方法
+  ```objc
+  -(id)copyWithZone:(NSZone *)zone{
+    
+    Person * p = [[Person alloc] init];
+    
+    p.age = self.age;
+    
+    p.name = self.name;
+    
+    return p;
+  }
+  ```
+  - 此时再调用copy方法时，就会调用自定义类的copyWithZone方法，创建一个对象，将属性值赋值给新的对象，然后返回该对象
+  - NSZone是一个空间对象，该方法实际上已将帮我们创建好了一个内存空间zone，所以不必再通过alloc来开辟新的内存空间。代码改进如下：
+  ```objc
+  -(id)copyWithZone:(NSZone *)zone{
+    
+    Person * p = [[Person allocWithZone:zone] init];
+    
+    p.age = self.age;
+    
+    p.name = self.name;
+    
+    return p;
+}
+  ```
