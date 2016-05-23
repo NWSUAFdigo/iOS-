@@ -91,3 +91,4 @@ copy方法理论上可以在任何继承自NSObject的类中使用，但是如�
     return p;
 }
   ```
+- mutableCopy与copy方法类似，需要遵守NSMutableCopying协议，并实现相关方法
