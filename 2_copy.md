@@ -127,4 +127,4 @@ copy方法理论上可以在任何继承自NSObject的类中使用，但是如�
   - 由于copy只能用于不可变对象，一般用于NSString，所以两者的区别只限于NSString使用的情况
   - 如果赋值对象是NSString，那么使用copy和strong是没什么区别的，因为不会产生新的对象，并且属性指针也都指向了赋值对象
   - **两者真正的区别在与赋值对象是NSMutableString的情况。**此时，copy会产生一个新的NSString对象，而strong只是将属性指针指向了赋值对象NSMutableString。所以**此时copy返回的是一个全新NSString对象，而strong返回的是NSMutableString赋值对象**
-- 一般不对NSArray、NSDictionary使用copy，因为将它们当做普通对象来对待
+- NSArray、NSDictionary的情况比较复杂，分一层复制和二层赋值，后续会讲到
