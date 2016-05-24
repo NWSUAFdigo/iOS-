@@ -92,3 +92,39 @@ copy方法理论上可以在任何继承自NSObject的类中使用，但是如�
 }
   ```
 - mutableCopy与copy方法类似，需要遵守NSMutableCopying协议，并实现相关方法
+
+#### 5 copy在@property属性中的使用
+正常情况下，如果一个属性是OC对象（带*号），那么可以使用strong关键字修饰；如果一个属性是非OC对象，那么可以使用assign属性。但是NSString字符串有些特殊
+- **一般情况下，NSString字符串作为属性时，用copy取代strong来修饰该属性**
+- 因为copy作为关键字时，属性的setter方法和使用strong时是有区别的
+- 例：
+  - 当字符串使用strong作为关键字时，其setter方法的声明和实现如下：
+  ```objc
+  // 声明
+  @property (nonatomic,strong) NSString * name;
+  // 实现
+  -(void)setName:(NSString *)name{
+    _name = name;
+}
+  ```
+  此时属于正常的setter方法，当对name属性赋值时，实际上是讲name指针指向了赋值字符串
+  - 当字符串使用copy作为关键字时，其setter方法的声明和实现如下：
+  ```objc
+  // 声明
+  @property (nonatomic,copy) NSString * name;
+  // 实现
+  -(void)setName:(NSString *)name{
+    _name = [name copy];
+}
+  ```
+  实际上调用的是赋值字符串的copy方法
+    - 这样做的好处就是保证了：无论赋值字符串是NSString还是NSMutableString，最终的name属性永远是NSString
+    - 并且保证了name属性和赋值对象是相对独立的（赋值对象是NSString时，name属性也指向了这个对象，并且name属性是NSString；赋值对象是NSMutableString时，name属性指向了一个新的对象，并且是NSString对象）
+- **注意：copy属性只能用于不可变对象，而不能用于可变对象。**所以下面的属性语句是有问题的
+  - ```@property (nonatomic,copy) NSMutableString * name;```
+  - 因为copy关键字最终返回的都是不可变对象，此时如果对name属性调用NSMutableString的特有方法，程序就会崩溃
+- copy关键字与strong关键字的区别
+  - 由于copy只能用于不可变对象，一般用于NSString，所以两者的区别只限于NSString使用的情况
+  - 如果赋值对象是NSString，那么使用copy和strong是没什么区别的，因为不会产生新的对象，并且属性指针也都指向了赋值对象
+  - **两者真正的区别在与赋值对象是NSMutableString的情况。**此时，copy会产生一个新的NSString对象，而strong只是将属性指针指向了赋值对象NSMutableString。所以**此时copy返回的是一个全新NSString对象，而strong返回的是NSMutableString赋值对象**
+- 一般不对NSArray、NSDictionary使用copy，因为将它们当做普通对象来对待
