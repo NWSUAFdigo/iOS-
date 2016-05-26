@@ -45,3 +45,8 @@ extern CGFloat pointA;
 extern const CGFloat pointA;
 ```
 - 此时外界引用时，如果修改pointA的值，在编译阶段就会报错
+- 由于苹果在UIKit框架中对extern进行了一个宏定义，所以可以直接使用苹果定义的extern
+```objc
+#import <UIKit/UIKit.h>
+UIKIT_EXTERN const CGFloat pointA;
+```
