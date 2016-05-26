@@ -37,3 +37,11 @@ const CGFloat pointA = 0.5;
 #import <UIKit/UIKit.h>
 extern CGFloat pointA;
 ```
+- 此时如果想要使用pointA，只需要在头文件中引入WDConst.h文件，即可使用
+
+- 注意：由于extern修饰的是全局变量，所以为了防止使用者误以为pointA可以修改，所以最好在extern后面加上const，表示这是一个全局常量
+```objc
+#import <UIKit/UIKit.h>
+extern const CGFloat pointA;
+```
+- 此时外界引用时，如果修改pointA的值，在编译阶段就会报错
