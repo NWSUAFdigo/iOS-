@@ -60,3 +60,9 @@ UIKIT_EXTERN const CGFloat pointA;
 | int const *p = &a | 可更改(p = &b;) | 不可更改(~~*p = 30;~~) |
 | int * const p = &a | 不可更改(~~p = &b;~~) | 可更改(*p = 30;) |
 - 在OC中，一般都是对指针进行修改（p），指针指向的地址很少去修改（*p），所以如果想让一个OC对象变为一个常量，最好是将其指针设置为不可修改
+```objc
+// 定义
+NSString * const str = @"hello";
+// 使用
+extern NSString * const str;
+```
