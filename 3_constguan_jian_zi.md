@@ -50,3 +50,13 @@ extern const CGFloat pointA;
 #import <UIKit/UIKit.h>
 UIKIT_EXTERN const CGFloat pointA;
 ```
+
+#### 4 const修饰指针
+对于一个指针，可以有两种操作方式：1 更改指针的指向 2 更改指针所指向的变量的值。在指针定义的过程中，const关键字放置的位置不同，对于指针的影响也是不同的。
+
+| const放置位置 | 指针的指向 | 指针所指向的变量值 |
+| -- | -- | -- |
+| const int *p = &a | 可更改(p = &b;) | 不可更改(~~*p = 30;~~) |
+| int const *p = &a | 可更改(p = &b;) | 不可更改(~~*p = 30;~~) |
+| int * const p = &a | 不可更改(~~p = &b;~~) | 可更改(*p = 30;) |
+- 在OC中，一般都是对指针进行修改（p），指针指向的地址很少去修改（*p），所以
