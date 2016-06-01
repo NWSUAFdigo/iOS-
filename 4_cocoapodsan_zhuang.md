@@ -20,6 +20,8 @@ $ sudo gem install -n /usr/local/bin cocoapods
 
 $ pod setup
 
+> pod setup需要等待的时间有些长，耐心等待，终端没有假死
+
 #### 6.更新 gem
 $ sudo gem update --system
 
