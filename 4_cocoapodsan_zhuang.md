@@ -30,7 +30,13 @@ $ sudo gem update --system
 ### 二、 cocoapods使用
 
 #### 1.新建工程，并在终端用 cd 指令到文件夹内
+如下图：
+![](屏幕快照 2016-06-02 上午10.12.19.png)
+
+#### 2 搜索需要使用的第三方框架
 $ pod search 第三方
+如本图中搜索Masonry,可以使用：pod search Masonry
+![](屏幕快照 2016-06-02 上午10.13.59.png)
 
 #### 2.新建 Podfile 文件
 $ touch Podfile
