@@ -35,8 +35,9 @@ $ sudo gem update --system
 
 #### 2 搜索需要使用的第三方框架
 $ pod search 第三方
-如本图中搜索Masonry,可以使用：pod search Masonry
+- 如本图中搜索Masonry,可以使用：pod search Masonry
 ![](屏幕快照 2016-06-02 上午10.13.59.png)
+- 按Q键退出vim，回到终端界面
 
 #### 2.新建 Podfile 文件
 $ touch Podfile
