@@ -40,7 +40,13 @@ $ pod search 第三方
 - 按Q键退出vim，回到终端界面
 
 #### 2.新建 Podfile 文件
-$ touch Podfile
+$ vim Podfile
+> 注意：Podfile第一个字母必须大写，所有字母和空格不能缺少
+
+![](屏幕快照 2016-06-02 上午10.17.47.png)
+- 该界面进入的vim编辑器
+- 按I键进行输入
+- 在非输入状态按 :键 ，然后输入 wq 保存内容并退出编辑
 
 #### 3.编辑 Podfile 文件，并写入要添加的第三方库
 platform:ios, '8.0'
