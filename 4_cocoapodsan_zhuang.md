@@ -1,4 +1,6 @@
-# cocoapods安装
+# cocoapods安装与使用
+### 一、 cocoapods安装
+
 #### 1.开启 terminal
 #### 2.移除现有 Ruby 默认源
 $ gem sources --remove https://rubygems.org/
@@ -25,19 +27,21 @@ $ pod setup
 #### 6.更新 gem
 $ sudo gem update --system
 
-#### 7.新建工程，并在终端用 cd 指令到文件夹内
+### 二、 cocoapods使用
+
+#### 1.新建工程，并在终端用 cd 指令到文件夹内
 $ pod search 第三方
 
-#### 8.新建 Podfile 文件
+#### 2.新建 Podfile 文件
 $ touch Podfile
 
-#### 9.编辑 Podfile 文件，并写入要添加的第三方库
+#### 3.编辑 Podfile 文件，并写入要添加的第三方库
 platform:ios, '8.0'
 
 pod 'AFNetworking', '~> 2.3.1'<-------第三方
 
-#### 10.导入第三方库
+#### 4.导入第三方库
 $ pod install
 
-#### 11.退出终端
+#### 5.退出终端
 
