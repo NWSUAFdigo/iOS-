@@ -63,7 +63,7 @@ end
 > 
 > 可以再次输入vim Podfile进入已经新建好的Podfile文件进行编辑
 >
-> 最新版本的cocoapods中，Podfile文件的格式和老版本不太一样
+> 最新版本的cocoapods中，Podfile文件的格式和老版本不太一样，需要注意
 
 #### 4.导入第三方库
 $ pod install
