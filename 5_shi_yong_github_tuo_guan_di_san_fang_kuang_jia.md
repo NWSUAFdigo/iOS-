@@ -39,4 +39,7 @@
   - 点击Commit to master,将修改和添加的内容提交到本地仓库中
   - 点击右上角的Sync,将本地仓库中的内容提交到Github服务器
 
-- 也可以
+- 也可以在菜单栏中选择Edit --> Automatically Sync after Committing,表示在提交到本地仓库后自动同步到Github服务器上
+![](屏幕快照 2016-07-08 下午4.27.59.png)
+
+- 这样就完成了框架的初始化并上传操作
