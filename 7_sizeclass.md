@@ -29,11 +29,29 @@
 需求:添加一个UIView,在iPhone横屏时显示在屏幕左上方,在iPhone竖屏时显示在屏幕右下方
 - 步骤
 - 1 首先布局iPhone横屏
-  - 1 调整SizeClass为iPhone横屏
-  - 2 添加一个UIView
-  - 3 设置UIView的约束为距离左边为0,距离顶部为0.并设置UIView的宽高值
+  - 1.1 调整SizeClass为iPhone横屏
+  - 1.2 添加一个UIView
+  - 1.3 设置UIView的约束为距离左边为0,距离顶部为0.并设置UIView的宽高值
   - ![](Snip20160823_7.png)
 - 2 布局iPhone竖屏
-  - 1 调整SizeClass为iPhone竖屏
+  - 2.1 调整SizeClass为iPhone竖屏
   - ![](Snip20160823_8.png)
-  - 2 此时已经添加的绿色View不见了,因为
+  - 2.2 此时已经添加的绿色View不见了,因为该绿色View是在SizeClass为iPhone横屏时添加的,所以如果不进行其他设置,该绿色View只会在iPhone横屏时显示
+  - 2.3 选中该绿色View,并查看方框位置
+  - ![](Snip20160823_9.png)
+  - 2.4 可以看到,该绿色View只会在W为Any,H为C(Compact)时显示,我们需要让其在iPhone竖屏时也显示.点击+号进行添加
+  - ![](Snip20160823_10.png)
+  - 2.5 选择箭头所指的选项,后面的current表示这是当前的SizeClass,也就是iPhone竖屏的情况,点击添加
+  - ![](Snip20160823_11.png)
+  - 2.6 添加完毕后,点击勾选,该绿色View就显示在interfaceBuilder中了,对其添加右下角的约束即可
+
+#### 5 图片控件(如imageView)在横屏和竖屏时显示不同图片
+需求:添加一个imageView,在iPhone横屏时显示一张图片,在iPhone竖屏时显示另外一张图片
+- 步骤
+- 1 布局iPhone横屏
+  - 1.1 将SizeClass调整为iPhone横屏
+  - 1.2 创建一个imageView并向其中添加一张图片
+  - 1.3 布局imageView到屏幕右下方
+  - ![](Snip20160823_12.png)
+- 2 布局iPhone竖屏
+  - 2.1 
