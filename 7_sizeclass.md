@@ -54,4 +54,11 @@
   - 1.3 布局imageView到屏幕右下方
   - ![](Snip20160823_12.png)
 - 2 布局iPhone竖屏
-  - 2.1 
+  - 2.1 修改SizeClass为iPhone竖屏
+  - 2.2 点击imageView,选择右侧属性面板的第4个按钮,点击最下方的+号
+  - 2.3 添加当前SizeClass,并勾选install
+  - 2.4 此时imageView已经显示在interfaceBuilder中
+  - 2.5 给imageView添加左上角约束
+  - ![](Snip20160823_13.png)
+- 3 修改图片库中的图片,让其在横竖屏时显示不同图片
+- 
